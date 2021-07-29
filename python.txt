@@ -1,5 +1,6 @@
 Welcome tyo git with python
 
+Python is Very usefull for scripting and web development. It is help development to impliment application very fast.
 
 Thank you!
 Bhaskar Mandiya
