@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+    <a type="int">2</a>
+    <b type="dict">
+        <c type="str">as</c>
+        <f type="bool">True</f>
+    </b><d type="int">7</d>
+</root>
+
+
+
+
+
