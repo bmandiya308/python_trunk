@@ -1,4 +1,3 @@
-##web/rest api calls
 import requests
 from requests.auth import HTTPBasicAuth as auth
 import json
