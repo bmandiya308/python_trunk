@@ -1,11 +1,21 @@
-def lcs(str1,str2,m,n):
-    if(m==0 or n==0):
-        return 0
-    if(str1[m]==str2[n]):
-        return 1 + lcs(str1,str2,m-1,n-1)
-    else:
-        return max(lcs(str1,str2,m,n-1),lcs(str1,str2,m-1,n))
+from functools import lru_cache
 
-str1 = 'bhaskar'
-str2 = 'askar'
-print(lcs(str1,str2,len(str1)-1,len(str2)-1))
+
+def lcs(str1, str2):
+    """Return the length of the longest common subsequence."""
+    @lru_cache(maxsize=None)
+    def length(first_index, second_index):
+        if first_index == len(str1) or second_index == len(str2):
+            return 0
+        if str1[first_index] == str2[second_index]:
+            return 1 + length(first_index + 1, second_index + 1)
+        return max(
+            length(first_index + 1, second_index),
+            length(first_index, second_index + 1),
+        )
+
+    return length(0, 0)
+
+
+if __name__ == "__main__":
+    print(lcs("bhaskar", "askar"))
