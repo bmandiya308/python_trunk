@@ -5,7 +5,7 @@
 # maximum depth nested parenthesis
 def maxDepth(S):
     current_max = 0
-    max = 0
+    max_depth = 0
     n = len(S)
 
     # Traverse the input string
@@ -13,8 +13,8 @@ def maxDepth(S):
         if S[i] == '(':
             current_max += 1
 
-            if current_max > max:
-                max = current_max
+            if current_max > max_depth:
+                max_depth = current_max
         elif S[i] == ')':
             if current_max > 0:
                 current_max -= 1
@@ -25,13 +25,13 @@ def maxDepth(S):
     if current_max != 0:
         return -1
 
-    return max
+    return max_depth
 
 
 # Driver program
 
-s = "( ((X)) (((Y))) )"
-s = "((()(())))"
-print(maxDepth(s))
+if __name__ == "__main__":
+    s = "((()(())))"
+    print(maxDepth(s))
 
 # This code is contributed by BHAVYA JAIN

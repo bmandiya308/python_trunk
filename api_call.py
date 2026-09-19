@@ -1,9 +1,22 @@
 import requests
 from requests.auth import HTTPBasicAuth as auth
-import json
-response = requests.get("http://127.0.0.1:5000/index",auth=auth('Bhaskar','mandiya'))
-print(response)
-print(response.status_code)
-json_d = json.dumps(eval(response.content))
-print(type(json.loads(json_d)))
-print(json.loads(json_d)['details'])
+
+
+def get_details(url, username, password, timeout=10):
+	response = requests.get(
+		url,
+		auth=auth(username, password),
+		timeout=timeout,
+	)
+	response.raise_for_status()
+	payload = response.json()
+	return payload["details"]
+
+
+if __name__ == "__main__":
+	details = get_details(
+		"http://127.0.0.1:5000/index",
+		"Bhaskar",
+		"mandiya",
+	)
+	print(details)
